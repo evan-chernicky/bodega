@@ -29,7 +29,10 @@ function InventoryManager() {
 
         const removedItem = reorderList.find( el => el.name === name)
         const removedIndex = reorderList.indexOf(removedItem)
-        const newArray = reorderList.filter( el => reorderList.indexOf(el) !== removedIndex)
+        // const newArray = reorderList.filter( el => reorderList.indexOf(el) !== removedIndex)
+        const newArray = [...reorderList]
+        newArray.splice(removedIndex, 1)
+
         setReorderList(newArray)
 
     }
