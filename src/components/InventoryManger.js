@@ -54,7 +54,7 @@ console.log()
     return(
         <div className="container">
             <CurrentInventoryList inventory={inventory} onButtonReorder={setReorder} handleDeleteInventory={handleDeleteInventory} />
-            <ReorderInventoryList reorderList={reorderList} onButtonReorder={removeReorder} />
+            <ReorderInventoryList reorderList={reorderList} onButtonReorder={removeReorder} handleDeleteInventory={handleDeleteInventory}  />
         </div>
     );
 }
