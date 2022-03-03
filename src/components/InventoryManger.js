@@ -13,7 +13,15 @@ function InventoryManager() {
         .then(inventoryData => setInventory(inventoryData))
     }, [])
 
-    function handleDeleteInventory(id) {
+    function handleDeleteInventory(id, e) {
+
+        e.stopPropagation();
+
+        const removedItem = inventory.find( el => el.id === id)
+        const removedIndex = inventory.indexOf(removedItem)
+        const newArray = [...inventory]
+        newArray.splice(removedIndex, 1)
+        setInventory(newArray)
 
         fetch(`http://localhost:8001/inventory/${id}`, {
             method: "DELETE",
@@ -21,6 +29,9 @@ function InventoryManager() {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         })
+
+
+        
     }
 
     function setReorder(name ) {
@@ -28,7 +39,7 @@ function InventoryManager() {
         return inventory.filter(inventoryItem => {
 
             if (name === inventoryItem.name && !reorderList.includes(inventoryItem)) {
-                setReorderList([...reorderList, inventoryItem] )
+                setInventory([...reorderList, inventoryItem] )
             }
 
         })

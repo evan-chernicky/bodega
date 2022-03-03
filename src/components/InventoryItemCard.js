@@ -6,7 +6,7 @@ function InventoryItemCard({image, name, price, id, onButtonReorder, handleDelet
             <img src={image} alt={name}></img>
             <h3>{name}</h3>
             <h4>{price}</h4>
-            <button onClick={() => handleDeleteInventory(id)}>Delete</button>
+            <button onClick={(e) => handleDeleteInventory(id, e)}>Delete</button>
         </div>
     );
 }
