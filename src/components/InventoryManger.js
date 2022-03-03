@@ -39,7 +39,7 @@ function InventoryManager() {
         return inventory.filter(inventoryItem => {
 
             if (name === inventoryItem.name && !reorderList.includes(inventoryItem)) {
-                setInventory([...reorderList, inventoryItem] )
+                setReorderList([...reorderList, inventoryItem] )
             }
 
         })
