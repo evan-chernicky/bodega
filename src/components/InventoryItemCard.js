@@ -1,12 +1,12 @@
 import React from 'react'
 
-function InventoryItemCard({item}) {
+function InventoryItemCard({image, name, price, onButtonReorder}) {
     return(
-        <div className="card" onClick={() => console.log("Clicking the item...")}>
-            <img src=''></img>
-            <h3>ITEM NAME</h3>
-            <h4>$ITEM PRICE</h4>
-            <button onClick={() => console.log("Deleting the item...")}>Delete</button>
+        <div className="card" onClick={() => onButtonReorder(name)}>
+            <img src={image} alt={name}></img>
+            <h3>{name}</h3>
+            <h4>{price}</h4>
+            <button onClick={() => console.log('delete')}>Delete</button>
         </div>
     );
 }

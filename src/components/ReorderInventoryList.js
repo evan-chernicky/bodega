@@ -1,11 +1,20 @@
 import React from 'react'
+import InventoryItemCard from './InventoryItemCard'
 
-function ReorderInventoryList() {
+function ReorderInventoryList({reorderList, onButtonReorder}) {
     return(
         <div id="reorder-container">
             <h2>Reorder</h2>
             <div>
-                {/** Put inventory items here */}
+            {reorderList.map(inventoryItem =>
+                 <InventoryItemCard 
+                    key={inventoryItem.id}
+                    image={inventoryItem.image}
+                    name={inventoryItem.name}
+                    price={inventoryItem.price}
+                    onButtonReorder={onButtonReorder}
+                />
+                )}
             </div>
         </div>
     );
