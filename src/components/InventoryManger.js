@@ -23,6 +23,8 @@ function InventoryManager() {
         newArray.splice(removedIndex, 1)
         setInventory(newArray)
 
+        removeReorder(removedItem.name)
+
         fetch(`http://localhost:8001/inventory/${id}`, {
             method: "DELETE",
             headers: {
