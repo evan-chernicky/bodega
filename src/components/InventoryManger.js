@@ -13,7 +13,17 @@ function InventoryManager() {
         .then(inventoryData => setInventory(inventoryData))
     }, [])
 
-    function setReorder(name) {
+    function handleDeleteInventory(id) {
+
+        fetch(`http://localhost:8001/inventory/${id}`, {
+            method: "DELETE",
+            headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        })
+    }
+
+    function setReorder(name ) {
 
         return inventory.filter(inventoryItem => {
 
@@ -43,8 +53,8 @@ console.log()
 
     return(
         <div className="container">
-            <CurrentInventoryList inventory={inventory} onButtonReorder={setReorder} />
-            <ReorderInventoryList reorderList={reorderList} onButtonReorder={removeReorder}/>
+            <CurrentInventoryList inventory={inventory} onButtonReorder={setReorder} handleDeleteInventory={handleDeleteInventory} />
+            <ReorderInventoryList reorderList={reorderList} onButtonReorder={removeReorder} />
         </div>
     );
 }

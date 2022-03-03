@@ -1,7 +1,7 @@
 import React from 'react'
 import InventoryItemCard from './InventoryItemCard'
 
-function CurrentInventoryList({inventory, onButtonReorder}) {
+function CurrentInventoryList({inventory, onButtonReorder, handleDeleteInventory}) {
 
     return(
         <div id="current-inventory">
@@ -13,7 +13,9 @@ function CurrentInventoryList({inventory, onButtonReorder}) {
                     image={inventoryItem.image}
                     name={inventoryItem.name}
                     price={inventoryItem.price}
+                    id={inventoryItem.id}
                     onButtonReorder={onButtonReorder} 
+                    handleDeleteInventory={handleDeleteInventory}
                 />
                 )}
             </div>
